@@ -6,16 +6,18 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(RefreshDatabase::class);
 
-it('lists products', function () {
+it('lists released products', function () {
     // Arrange
-    $firstProduct = Product::factory()->create();
-    $secondProduct = Product::factory()->create();
+    $releasedProduct = Product::factory()
+        ->released()
+        ->create();
+
+    $draftProduct = Product::factory()
+        ->create();
 
     // Act & Assert
     $this->get('/')
         ->assertOk()
-        ->assertSeeText([
-            $firstProduct->title,
-            $secondProduct->title,
-        ]);
+        ->assertSeeText($releasedProduct->title)
+        ->assertDontSeeText($draftProduct->title);
 });

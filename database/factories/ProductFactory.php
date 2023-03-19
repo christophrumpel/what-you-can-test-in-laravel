@@ -15,4 +15,9 @@ class ProductFactory extends Factory
             'title' => $this->faker->title,
         ];
     }
+
+    public function released(): self
+    {
+        return $this->state(fn () => ['released' => true]);
+    }
 }

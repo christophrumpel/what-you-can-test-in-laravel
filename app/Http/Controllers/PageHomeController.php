@@ -9,6 +9,6 @@ class PageHomeController extends Controller
 {
     public function __invoke(): View
     {
-        return view('home', ['products' => Product::all()]);
+        return view('home', ['products' => Product::released()->get()]);
     }
 }
