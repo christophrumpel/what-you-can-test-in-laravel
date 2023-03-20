@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PageHomeController;
+use App\Http\Controllers\PurchaseController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,3 +16,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', PageHomeController::class);
+
+Route::post('purchase/{user}/{product}', PurchaseController::class);
