@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -14,6 +15,7 @@ it('stores a product', function () {
     ])->assertSuccessful();
 
     // Assert
+    $this->assertDatabaseCount(Product::class, 1);
     $this->assertDatabaseHas('products', [
         'title' => 'Product name',
         'description' => 'Product description',
