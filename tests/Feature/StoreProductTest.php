@@ -21,3 +21,19 @@ it('stores a product', function () {
         'description' => 'Product description',
     ]);
 });
+
+it('requires the title', function () {
+    // Act
+    $this->actingAs(User::factory()->create())
+        ->post('product', [
+            'description' => 'Product description',
+        ])->assertInvalid(['title' => 'required']);
+});
+
+it('requires the description', function () {
+    // Act
+    $this->actingAs(User::factory()->create())
+        ->post('product', [
+            'title' => 'Product name',
+        ])->assertInvalid(['description' => 'required']);
+});
