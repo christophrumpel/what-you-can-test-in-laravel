@@ -10,6 +10,8 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function scopeReleased(Builder $query): void
     {
         $query->where('released', true);

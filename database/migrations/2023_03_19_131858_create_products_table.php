@@ -11,6 +11,7 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('user_id');
             $table->string('title');
+            $table->text('description')->nullable();
             $table->boolean('released')->default(false);
             $table->timestamps();
         });
