@@ -16,7 +16,7 @@ it('stores a product', function () {
 
     // Assert
     $this->assertDatabaseCount(Product::class, 1);
-    $this->assertDatabaseHas('products', [
+    $this->assertDatabaseHas(Product::class, [
         'title' => 'Product name',
         'description' => 'Product description',
     ]);
