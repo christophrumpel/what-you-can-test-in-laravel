@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PageHomeController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductsApiController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\StoreProductController;
@@ -24,3 +25,5 @@ Route::post('purchase/{user}/{product}', PurchaseController::class);
 Route::post('product', StoreProductController::class);
 
 Route::post('api/products', ProductsApiController::class);
+
+Route::post('payment', PaymentController::class);
