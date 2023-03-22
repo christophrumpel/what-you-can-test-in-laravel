@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\Product;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
@@ -12,7 +13,9 @@ class PaymentSuccessfulMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public function __construct()
+    public $subject = 'Your payment was successful';
+
+    public function __construct(public Product $product)
     {
     }
 
