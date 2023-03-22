@@ -10,7 +10,8 @@ it('returns correct view', function() {
     // Act & Assert
     $this->get('/')
         ->assertOk()
-        ->assertViewIs('home');
+        ->assertViewIs('home')
+        ->assertViewHas('products');
 });
 
 it('lists released products', function () {
