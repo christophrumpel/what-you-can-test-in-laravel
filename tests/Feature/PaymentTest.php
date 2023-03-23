@@ -16,7 +16,8 @@ it('sends payment successful mail', function () {
         ->once();
 
     // Act
-    $this->post('payment');
+    $this->post('payment')
+        ->assertOk();
 
     // Assert
     Mail::assertSent(PaymentSuccessfulMail::class);

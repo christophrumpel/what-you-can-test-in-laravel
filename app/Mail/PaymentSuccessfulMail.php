@@ -15,7 +15,7 @@ class PaymentSuccessfulMail extends Mailable
 
     public $subject = 'Your payment was successful';
 
-    public function __construct(public Product $product)
+    public function __construct(public ?Product $product = null)
     {
     }
 

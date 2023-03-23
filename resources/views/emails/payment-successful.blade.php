@@ -1,1 +1,1 @@
-# {{ $product->title }}
+# {{ $product->title ?? '' }}
