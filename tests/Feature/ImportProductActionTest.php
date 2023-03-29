@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(RefreshDatabase::class);
 
-it('import product', function() {
+it('imports a product', function () {
     // Arrange
     Http::fake([
         'https://christoph-rumpel.com/import' => Http::response([
@@ -25,4 +25,19 @@ it('import product', function() {
         'title' => 'My new product',
         'description' => 'This is a description',
     ]);
+});
+
+it('make the right call', function () {
+    // Arrange
+    Http::fake();
+    $user = User::factory()->create();
+
+    // Act
+    (new ImportProductAction)->handle($user);
+
+    // Assert
+    Http::assertSent(function ($request) {
+        return $request->url() === 'https://christoph-rumpel.com/import'
+            && $request['accessToken'] === '123456';
+    });
 });
