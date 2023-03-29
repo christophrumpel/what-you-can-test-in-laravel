@@ -32,5 +32,7 @@ class MergeAccountsCommand extends Command
         $userToBeMerged->products()->update(['user_id' => $user->id]);
 
         $userToBeMerged->delete();
+
+        $this->info('Accounts merged successfully');
     }
 }

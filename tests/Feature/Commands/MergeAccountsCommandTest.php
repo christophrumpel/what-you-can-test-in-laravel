@@ -60,6 +60,7 @@ it('asks for user ids', function() {
     $this->artisan(MergeAccountsCommand::class)
         ->expectsQuestion('Please provide the user ID of the user you want to keep', $user->id)
         ->expectsQuestion('Please provide the user ID of the user you want to merge', $userToBeMerged->id)
+        ->expectsOutput('Accounts merged successfully')
         ->assertSuccessful();
 });
 
