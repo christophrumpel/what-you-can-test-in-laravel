@@ -21,7 +21,7 @@ it('merges two accounts', function () {
 
     // Assert
     $this->assertDatabaseCount(User::class, 1);
-    $this->assertDatabaseHas('users', [
+    $this->assertDatabaseHas(User::class, [
         'id' => $user->id,
         'name' => $user->name,
         'email' => $user->email,
