@@ -13,6 +13,7 @@ return new class extends Migration {
             $table->string('title');
             $table->text('description')->nullable();
             $table->boolean('released')->default(false);
+            $table->boolean('archived')->default(false);
             $table->timestamps();
         });
     }

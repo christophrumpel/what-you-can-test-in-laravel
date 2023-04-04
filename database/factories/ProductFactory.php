@@ -22,4 +22,9 @@ class ProductFactory extends Factory
     {
         return $this->state(fn () => ['released' => true]);
     }
+
+    public function archived(): self
+    {
+        return $this->state(fn () => ['archived' => true]);
+    }
 }
