@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CsvUploadController;
 use App\Http\Controllers\PageArchiveController;
 use App\Http\Controllers\PageHomeController;
 use App\Http\Controllers\PaymentController;
@@ -32,3 +33,5 @@ Route::post('payment', PaymentController::class);
 
 Route::get('archive', PageArchiveController::class)
     ->middleware(ArchiveFeatureActiveMiddleware::class);
+
+Route::post('csv/upload', CsvUploadController::class);
