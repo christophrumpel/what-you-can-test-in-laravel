@@ -1,6 +1,6 @@
 <?php
 
-use App\Console\Commands\InformAboutNewProductNotification;
+use App\Console\Commands\InformAboutNewProductCommand;
 use App\Models\Product;
 use App\Models\User;
 use App\Notifications\NewProductNotification;
@@ -16,7 +16,7 @@ it('sends notification about new product', function () {
     $product = Product::factory()->create();
 
     // Act
-    $this->artisan(InformAboutNewProductNotification::class, [
+    $this->artisan(InformAboutNewProductCommand::class, [
         'productId' => $product->id,
         'userId' => $user->id,
     ]);
@@ -32,7 +32,7 @@ it('fails if product not given', function () {
     $user = User::factory()->create();
 
     // Act
-    $this->artisan(InformAboutNewProductNotification::class, [
+    $this->artisan(InformAboutNewProductCommand::class, [
         'productId' => 99,
         'userId' => $user->id,
     ]);
@@ -43,7 +43,7 @@ it('fails if user not given', function () {
     $product = Product::factory()->create();
 
     // Act
-    $this->artisan(InformAboutNewProductNotification::class, [
+    $this->artisan(InformAboutNewProductCommand::class, [
         'productId' => $product->id,
         'userId' => 99,
     ]);

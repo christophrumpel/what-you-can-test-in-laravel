@@ -7,7 +7,7 @@ use App\Models\User;
 use App\Notifications\NewProductNotification;
 use Illuminate\Console\Command;
 
-class InformAboutNewProductNotification extends Command
+class InformAboutNewProductCommand extends Command
 {
     protected $signature = 'tweet:about-product {productId} {userId}';
 
