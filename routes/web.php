@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CachedProductsApiController;
 use App\Http\Controllers\CsvUploadController;
 use App\Http\Controllers\PageArchiveController;
 use App\Http\Controllers\PageHomeController;
@@ -28,6 +29,8 @@ Route::post('purchase/{user}/{product}', PurchaseController::class);
 Route::post('product', StoreProductController::class);
 
 Route::post('api/products', ProductsApiController::class);
+
+Route::post('api/cached-products', CachedProductsApiController::class);
 
 Route::post('payment', PaymentController::class);
 
